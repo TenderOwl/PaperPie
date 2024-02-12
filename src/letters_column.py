@@ -32,11 +32,13 @@ from .letter import Letter
 class LettersColumn(Gtk.Box):
     __gtype_name__ = 'LettersColumn'
 
+    list_view: Gtk.ListView = Gtk.Template.Child()
     list_store: Gio.ListStore = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
+        self.list_view.remove_css_class('view')
         self.list_store = self.populate_store(self.list_store)
 
     
@@ -58,13 +60,12 @@ class LettersColumn(Gtk.Box):
         return store
 
     @Gtk.Template.Callback()
-    def _on_item_setup(self, factory, item):
-        
+    def _on_item_setup(self, factory, item: Gtk.ListItem):
         label = LetterRow()
         item.set_child(label)
 
     @Gtk.Template.Callback()
-    def _on_item_bind(self, factory, item):
+    def _on_item_bind(self, factory, item: Gtk.ListItem):
         row: LetterRow = item.get_child()
         value: Letter = item.get_item()
 

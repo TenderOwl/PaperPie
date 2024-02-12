@@ -40,3 +40,7 @@ class PaperpieWindow(Adw.ApplicationWindow):
         
         self.view_switcher.set_stack(self.view_stack.stack)
         self.bottom_view_switcher.set_stack(self.view_stack.stack)
+
+        provider = Gtk.CssProvider()
+        provider.load_from_resource('/com/tenderowl/paperpie/styles.css')
+        self.get_style_context().add_provider(provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)

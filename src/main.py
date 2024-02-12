@@ -38,6 +38,9 @@ class PaperpieApplication(Adw.Application):
     def __init__(self):
         super().__init__(application_id='com.tenderowl.paperpie',
                          flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
+
+        self.set_resource_base_path("/com/tenderowl/paperpie/")
+
         self.create_action('quit', lambda *_: self.quit(), ['<primary>q'])
         self.create_action('about', self.on_about_action)
         self.create_action('preferences', self.on_preferences_action)

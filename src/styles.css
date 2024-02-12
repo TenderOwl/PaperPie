@@ -1,4 +1,6 @@
 
+#list_view row,
+.letters_list row,
 .rounded {
-  border-border-radius: 8px;
+  border-radius: 8px;
 }

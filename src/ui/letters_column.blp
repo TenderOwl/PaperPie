@@ -5,14 +5,22 @@ using Adw 1;
 template $LettersColumn : Box {
   orientation: vertical;
 
+  styles ["background"]
+
   ScrolledWindow {
     hexpand: true;
     vexpand: true;
 
-    ListView {
+    ListView list_view {
+      margin-top: 32;
+      margin-start: 32;
+      margin-end: 32;
+      margin-bottom: 32;
+
       single-click-activate: false;
       show-separators: false;
       enable-rubberband: false;
+
 
       model: SingleSelection selection {
         autoselect: false;
@@ -29,9 +37,7 @@ template $LettersColumn : Box {
         bind => $_on_item_bind();
       };
 
-      styles ["rounded"]
+      styles ["background", "letters_list"]
     }
-
-    styles ["rounded"]
   }
 }
