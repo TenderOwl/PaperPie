@@ -4,6 +4,13 @@ using Adw 1;
 template $ViewStack : Box {
     orientation: vertical;
 
+    Overlay overlay {
+      Gtk.ProgressBar progress_bar {
+        fraction: 0.9;
+        styles ["osd"]
+      }
+    }
+
       Adw.ViewStack stack {
 
       Adw.ViewStackPage  {
