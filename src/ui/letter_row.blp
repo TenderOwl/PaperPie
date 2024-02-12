@@ -1,0 +1,46 @@
+using Gtk 4.0;
+using Gio 2.0;
+using Adw 1;
+
+template $LetterRow : Box {
+  margin-start: 10;
+  margin-end: 10;
+  margin-top: 8;
+  margin-bottom: 8;
+  spacing: 16;
+
+  Adw.Avatar avatar {
+    show-initials: true;
+    size: 32;
+  }
+
+  Adw.Clamp {
+    maximum-size: 160;
+
+    Label sender_label {
+      label: "";
+      xalign: 0;
+      ellipsize: end;
+    }
+  }
+
+  Label subject_label {
+      label: "";
+      xalign: 0;
+    }
+
+  Label body_label {
+    label: "";
+    xalign: 0;
+    hexpand: true;
+    ellipsize: end;
+    styles ["dim-label"]
+  }
+
+  Label received_label {
+    label: "";
+    xalign: 1;
+    width-request: 100;
+    styles ["dim-label"]
+  }
+}

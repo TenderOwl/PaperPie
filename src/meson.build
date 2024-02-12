@@ -9,6 +9,7 @@ blueprints = custom_target('blueprints',
     'ui/window.blp',
     'ui/view_stack.blp',
     'ui/letters_column.blp',
+    'ui/letter_row.blp',
     'ui/todo_page.blp',
     'ui/draft_page.blp',
     'ui/reminders_page.blp',
@@ -53,6 +54,8 @@ paperpie_sources = [
   'draft_page.py',
   'reminders_page.py',
   'inbox_page.py',
+  'letter.py',
+  'letter_row.py',
 ]
 
 install_data(paperpie_sources, install_dir: moduledir)

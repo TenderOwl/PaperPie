@@ -23,11 +23,54 @@
 # SPDX-License-Identifier: MIT
 
 from gi.repository import Adw
-from gi.repository import Gtk
+from gi.repository import Gtk, Gio
+
+from .letter_row import LetterRow
+from .letter import Letter
 
 @Gtk.Template(resource_path='/com/tenderowl/paperpie/ui/letters_column.ui')
 class LettersColumn(Gtk.Box):
     __gtype_name__ = 'LettersColumn'
 
+    list_store: Gio.ListStore = Gtk.Template.Child()
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+
+        self.list_store = self.populate_store(self.list_store)
+
+    
+    def populate_store(self, store: Gio.ListStore) ->  Gio.ListStore:
+        store.remove_all()
+
+        letters = [
+            Letter(subject='Letter 1', body='Letter 1 content', sender='Adam W', received='8:32'),
+            Letter(subject='Letter 2', body='Letter 2 content', sender='Maria F', received='7:14'),
+            Letter(subject='Letter 3', body='Letter 3 content', sender='Adam W', received='yesterday'),
+            Letter(subject='Letter 4', body='Letter 4 content', sender='Johnny M', received='yesterday'),
+            Letter(subject='Letter 5', body='Letter 5 content', sender='Steve A', received='10.02.2024'),
+            Letter(subject='Letter 6', body='Letter 6 content', sender='Thom Y', received='08.02.2024'),
+        ]
+
+        for letter in letters:
+            store.append(letter)
+
+        return store
+
+    @Gtk.Template.Callback()
+    def _on_item_setup(self, factory, item):
+        
+        label = LetterRow()
+        item.set_child(label)
+
+    @Gtk.Template.Callback()
+    def _on_item_bind(self, factory, item):
+        row: LetterRow = item.get_child()
+        value: Letter = item.get_item()
+
+        row.avatar.set_text(value.sender)
+        row.sender_label.set_label(value.sender)
+        row.subject_label.set_label(value.subject)
+        row.body_label.set_label(f'{value.body}')
+        row.received_label.set_label(value.received)
+        

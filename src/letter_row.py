@@ -23,15 +23,18 @@
 # SPDX-License-Identifier: MIT
 
 from gi.repository import Adw
-from gi.repository import Gtk
+from gi.repository import Gtk, Gio
 
-from .letters_column import LettersColumn
 
-@Gtk.Template(resource_path='/com/tenderowl/paperpie/ui/todo_page.ui')
-class TodoPage(Gtk.Box):
-    __gtype_name__ = 'TodoPage'
+@Gtk.Template(resource_path='/com/tenderowl/paperpie/ui/letter_row.ui')
+class LetterRow(Gtk.Box):
+    __gtype_name__ = 'LetterRow'
 
-    column: LettersColumn = Gtk.Template.Child()
+    avatar: Adw.Avatar = Gtk.Template.Child()
+    sender_label: Gtk.Label = Gtk.Template.Child()
+    subject_label: Gtk.Label = Gtk.Template.Child()
+    body_label: Gtk.Label = Gtk.Template.Child()
+    received_label: Gtk.Label = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

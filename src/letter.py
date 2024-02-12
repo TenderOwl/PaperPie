@@ -22,16 +22,21 @@
 #
 # SPDX-License-Identifier: MIT
 
-from gi.repository import Adw
-from gi.repository import Gtk
+from gi.repository import GObject
 
-from .letters_column import LettersColumn
+class Letter(GObject.GObject):
 
-@Gtk.Template(resource_path='/com/tenderowl/paperpie/ui/todo_page.ui')
-class TodoPage(Gtk.Box):
-    __gtype_name__ = 'TodoPage'
+    __gtype_name__ = 'Letter'
 
-    column: LettersColumn = Gtk.Template.Child()
+    subject = GObject.Property(type=str)
+    body = GObject.Property(type=str)
+    sender = GObject.Property(type=str)
+    received = GObject.Property(type=str)
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, subject: str='', body: str='', sender: str='', received: str=''):
+        super().__init__()
+
+        self.subject = subject
+        self.body = body
+        self.sender = sender
+        self.received = received

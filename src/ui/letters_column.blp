@@ -1,6 +1,37 @@
 using Gtk 4.0;
+using Gio 2.0;
 using Adw 1;
 
 template $LettersColumn : Box {
   orientation: vertical;
+
+  ScrolledWindow {
+    hexpand: true;
+    vexpand: true;
+
+    ListView {
+      single-click-activate: false;
+      show-separators: false;
+      enable-rubberband: false;
+
+      model: SingleSelection selection {
+        autoselect: false;
+        model: SortListModel sort_model {
+          model: Gio.ListStore list_store {
+            item-type: typeof<$Letter>;
+          };
+          sorter: CustomSorter sorter {};
+          section-sorter: CustomSorter section_sorter {};
+        };
+      };
+      factory: SignalListItemFactory factory {
+        setup => $_on_item_setup();
+        bind => $_on_item_bind();
+      };
+
+      styles ["rounded"]
+    }
+
+    styles ["rounded"]
+  }
 }
