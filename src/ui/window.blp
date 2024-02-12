@@ -4,11 +4,34 @@ using Adw 1;
 template $PaperpieWindow : Adw.ApplicationWindow {
   default-width: 1100;
   default-height: 900;
+  width-request: 360;
+  height-request: 360;
+
+  Adw.Breakpoint {
+    condition ("max-width: 550sp")
+    setters {
+      header_bar.show-title: false;
+      bottom_view_switcher.reveal: true;
+    }
+  }
 
   content:
   Adw.ToolbarView {
     [top]
     Adw.HeaderBar header_bar {
+
+      [start]
+      Button create_btn {
+        icon-name: 'mail-message-new-symbolic';
+        tooltip-text: "Write a letter";
+      }
+
+      [start]
+      Button focus_mode_btn {
+        label: 'Focus';
+        tooltip-text: "Toggle Focus mode";
+        styles ["flat"]
+      }
 
       [title]
       Adw.ViewSwitcher view_switcher {
@@ -22,9 +45,18 @@ template $PaperpieWindow : Adw.ApplicationWindow {
         tooltip-text: _('Menu');
         menu-model: primary_menu;
       }
+
+      [end]
+      Button find_btn {
+        icon-name: 'folder-saved-search-symbolic';
+        tooltip-text: "Find a letter";
+      }
     }
 
     content: $ViewStack view_stack {};
+
+    [bottom]
+    Adw.ViewSwitcherBar bottom_view_switcher {}
   };
 }
 

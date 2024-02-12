@@ -9,33 +9,48 @@ template $ViewStack : Box {
       Adw.ViewStackPage  {
         name: 'todo';
         title: "To Do";
+        icon-name: "view-grid-symbolic";
 
         child: Adw.StatusPage {
           title: "To Do";
+          icon-name: "view-grid-symbolic";
+          vexpand: true;
         };
       }
 
       Adw.ViewStackPage {
         name: 'reminders';
         title: "Reminders";
+        icon-name: "preferences-system-time-symbolic";
+
         child: Adw.StatusPage {
           title: "Reminders";
+          icon-name: "preferences-system-time-symbolic";
+          vexpand: true;
         };
       }
 
       Adw.ViewStackPage {
         name: 'drafts';
         title: "Drafts";
+        icon-name: "document-edit-symbolic";
+
         child: Adw.StatusPage {
           title: "Drafts";
+          icon-name: "document-edit-symbolic";
+          vexpand: true;
         };
       }
 
       Adw.ViewStackPage {
         name: 'Inbox';
         title: "Inbox";
+        icon-name: "mail-unread-symbolic";
+
         child: Adw.StatusPage {
           title: "Inbox";
+          icon-name: "mail-unread-symbolic";
+          vexpand: true;
         };
       }
   }

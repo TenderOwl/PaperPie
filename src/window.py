@@ -32,9 +32,11 @@ class PaperpieWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'PaperpieWindow'
 
     view_switcher: Adw.ViewSwitcher = Gtk.Template.Child()
+    bottom_view_switcher: Adw.ViewSwitcherBar = Gtk.Template.Child()
     view_stack: ViewStack = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         
         self.view_switcher.set_stack(self.view_stack.stack)
+        self.bottom_view_switcher.set_stack(self.view_stack.stack)
