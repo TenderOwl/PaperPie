@@ -8,6 +8,11 @@ blueprints = custom_target('blueprints',
     'ui/gtk/help-overlay.blp',
     'ui/window.blp',
     'ui/view_stack.blp',
+    'ui/letters_column.blp',
+    'ui/todo_page.blp',
+    'ui/draft_page.blp',
+    'ui/reminders_page.blp',
+    'ui/inbox_page.blp',
   ),
   output: '.',
   command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],
@@ -43,6 +48,11 @@ paperpie_sources = [
   'main.py',
   'window.py',
   'view_stack.py',
+  'letters_column.py',
+  'todo_page.py',
+  'draft_page.py',
+  'reminders_page.py',
+  'inbox_page.py',
 ]
 
 install_data(paperpie_sources, install_dir: moduledir)

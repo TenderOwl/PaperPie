@@ -25,20 +25,11 @@
 from gi.repository import Adw
 from gi.repository import Gtk
 
-from .todo_page import TodoPage
-from .draft_page import DraftPage
-from .reminders_page import RemindersPage
-from .inbox_page import InboxPage
+@Gtk.Template(resource_path='/com/tenderowl/paperpie/ui/reminders_page.ui')
+class RemindersPage(Gtk.Box):
+    __gtype_name__ = 'RemindersPage'
 
-@Gtk.Template(resource_path='/com/tenderowl/paperpie/ui/view_stack.ui')
-class ViewStack(Gtk.Box):
-    __gtype_name__ = 'ViewStack'
-
-    stack: Adw.ViewStack = Gtk.Template.Child()
-    todo_page: TodoPage = Gtk.Template.Child()
-    draft_page: DraftPage = Gtk.Template.Child()
-    reminders_page: RemindersPage = Gtk.Template.Child()
-    inbox_page: InboxPage = Gtk.Template.Child()
+    # page: Adw.ViewStackPage = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

@@ -11,11 +11,7 @@ template $ViewStack : Box {
         title: "To Do";
         icon-name: "view-grid-symbolic";
 
-        child: Adw.StatusPage {
-          title: "To Do";
-          icon-name: "view-grid-symbolic";
-          vexpand: true;
-        };
+        child: $TodoPage todo_page {};
       }
 
       Adw.ViewStackPage {
@@ -23,11 +19,7 @@ template $ViewStack : Box {
         title: "Reminders";
         icon-name: "preferences-system-time-symbolic";
 
-        child: Adw.StatusPage {
-          title: "Reminders";
-          icon-name: "preferences-system-time-symbolic";
-          vexpand: true;
-        };
+        child: $RemindersPage reminders_page {};
       }
 
       Adw.ViewStackPage {
@@ -35,11 +27,7 @@ template $ViewStack : Box {
         title: "Drafts";
         icon-name: "document-edit-symbolic";
 
-        child: Adw.StatusPage {
-          title: "Drafts";
-          icon-name: "document-edit-symbolic";
-          vexpand: true;
-        };
+        child: $DraftPage draft_page {};
       }
 
       Adw.ViewStackPage {
@@ -47,11 +35,7 @@ template $ViewStack : Box {
         title: "Inbox";
         icon-name: "mail-unread-symbolic";
 
-        child: Adw.StatusPage {
-          title: "Inbox";
-          icon-name: "mail-unread-symbolic";
-          vexpand: true;
-        };
+        child: $InboxPage inbox_page {};
       }
   }
 }
