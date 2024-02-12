@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="paperpie">
+	<schema id="com.tenderowl.paperpie" path="/com/tenderowl/paperpie/">
+	</schema>
+</schemalist>

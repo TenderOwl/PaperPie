@@ -1,0 +1,48 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $PaperpieWindow : Adw.ApplicationWindow {
+  default-width: 1100;
+  default-height: 900;
+
+  content:
+  Adw.ToolbarView {
+    [top]
+    Adw.HeaderBar header_bar {
+
+      [title]
+      Adw.ViewSwitcher view_switcher {
+        policy: narrow;
+      }
+
+      [end]
+      MenuButton {
+        primary: true;
+        icon-name: 'open-menu-symbolic';
+        tooltip-text: _('Menu');
+        menu-model: primary_menu;
+      }
+    }
+
+    content: $ViewStack view_stack {};
+  };
+}
+
+menu primary_menu {
+  section {
+    item {
+      label: _('_Preferences');
+      action: 'app.preferences';
+    }
+
+    item {
+      label: _('_Keyboard Shortcuts');
+      action: 'win.show-help-overlay';
+    }
+
+    item {
+      label: _('_About PaperPie');
+      action: 'app.about';
+    }
+  }
+}

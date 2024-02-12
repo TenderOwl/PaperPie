@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=paperpie
+Exec=paperpie
+Icon=com.tenderowl.paperpie
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true

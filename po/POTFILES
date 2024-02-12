@@ -1,0 +1,6 @@
+data/com.tenderowl.paperpie.desktop.in
+data/com.tenderowl.paperpie.metainfo.xml.in
+data/com.tenderowl.paperpie.gschema.xml
+src/main.py
+src/window.py
+src/window.ui

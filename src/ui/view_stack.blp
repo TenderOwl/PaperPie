@@ -1,0 +1,42 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ViewStack : Box {
+    orientation: vertical;
+
+      Adw.ViewStack stack {
+
+      Adw.ViewStackPage  {
+        name: 'todo';
+        title: "To Do";
+
+        child: Adw.StatusPage {
+          title: "To Do";
+        };
+      }
+
+      Adw.ViewStackPage {
+        name: 'reminders';
+        title: "Reminders";
+        child: Adw.StatusPage {
+          title: "Reminders";
+        };
+      }
+
+      Adw.ViewStackPage {
+        name: 'drafts';
+        title: "Drafts";
+        child: Adw.StatusPage {
+          title: "Drafts";
+        };
+      }
+
+      Adw.ViewStackPage {
+        name: 'Inbox';
+        title: "Inbox";
+        child: Adw.StatusPage {
+          title: "Inbox";
+        };
+      }
+  }
+}
